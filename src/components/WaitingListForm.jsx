@@ -15,9 +15,6 @@ const WaitingListForm = () => {
         updateFormState((state) => ({...state, isLoading: true}))
 
         // Submit to API
-        // console.log(evt.target.email.value)
-        // console.log(new Date().toISOString())
-
         API.post(apiName, apiPath, { body: { user_email: email, updated_timestamp: new Date().toISOString() } })
             .then(() => {
                 updateFormState((state) => ({...state, isLoading: false, msg: 'Success'}))
