@@ -35,8 +35,19 @@ const WaitingListForm = () => {
 
     return (
         <form onSubmit={submitForm}>
-            <input type="email" name="email" value={email} onChange={(evt) => setEmail(evt.target.value)}/>
-            <input type="submit" />
+            <h2>Are you interested in trying it out?</h2>
+            <input
+                type="email"
+                placeholder="Email Address"
+                name="email"
+                value={email}
+                onChange={(evt) => setEmail(evt.target.value)}
+            />
+            <input type="submit" value="Sign me up!!"/>
+
+            <br/>
+            { (formState.msg !== '') ? formState.msg : '' }
+            { (formState.error !== '') ? formState.error : '' }
         </form>
     )
 
