@@ -1,0 +1,5 @@
+{
+    "tableName": "contacts",
+    "partitionKeyName": "user_email",
+    "partitionKeyType": "S"
+}

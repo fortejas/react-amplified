@@ -1,0 +1,103 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifylandingpage-dev-164431-authRole",
+      "UnauthRoleArn": "arn:aws:iam::335688126910:role/amplify-amplifylandingpage-dev-164431-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::335688126910:role/amplify-amplifylandingpage-dev-164431-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-amplifylandingpage-dev-164431-deployment",
+      "UnauthRoleName": "amplify-amplifylandingpage-dev-164431-unauthRole",
+      "StackName": "amplify-amplifylandingpage-dev-164431",
+      "StackId": "arn:aws:cloudformation:eu-west-1:335688126910:stack/amplify-amplifylandingpage-dev-164431/52760860-417c-11ec-8e32-06a26ebf6769",
+      "AmplifyAppId": "d3ujmpwlhp6eof"
+    }
+  },
+  "function": {
+    "NewContactFn": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "contacts",
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "attributeEnvMap": {
+            "Name": "TABLE_NAME",
+            "Arn": "TABLE_ARN"
+          }
+        }
+      ],
+      "lastBuildTimeStamp": "2021-11-09T17:59:00.446Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2021-11-09T17:59:16.708Z",
+      "distZipFilename": "NewContactFn-3158506d702f48757a73-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-amplifylandingpage-dev-164431-deployment",
+        "s3Key": "amplify-builds/NewContactFn-3158506d702f48757a73-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifylandingpage-dev-164431-deployment/amplify-cfn-templates/function/NewContactFn-cloudformation-template.json",
+        "logicalId": "functionNewContactFn"
+      },
+      "lastPushTimeStamp": "2021-11-09T18:02:39.333Z",
+      "output": {
+        "Region": "eu-west-1",
+        "Arn": "arn:aws:lambda:eu-west-1:335688126910:function:NewContactFn-dev",
+        "Name": "NewContactFn-dev",
+        "LambdaExecutionRole": "amplifylandingpageLambdaRole6c0af31d-dev"
+      },
+      "lastPushDirHash": "RxhDkgkMcu8sB7c6S9Ub2s2OPAo="
+    }
+  },
+  "api": {
+    "contacts": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "NewContactFn",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ],
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifylandingpage-dev-164431-deployment/amplify-cfn-templates/api/contacts-cloudformation-template.json",
+        "logicalId": "apicontacts"
+      },
+      "lastPushTimeStamp": "2021-11-09T18:02:39.333Z",
+      "output": {
+        "ApiName": "contacts",
+        "RootUrl": "https://bm42vgarok.execute-api.eu-west-1.amazonaws.com/dev",
+        "ApiId": "bm42vgarok"
+      },
+      "lastPushDirHash": "UD9hjb6gKjhTxOVju7EoZ0ZE4PY="
+    }
+  },
+  "storage": {
+    "contacts": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifylandingpage-dev-164431-deployment/amplify-cfn-templates/storage/contacts-cloudformation-template.json",
+        "logicalId": "storagecontacts"
+      },
+      "lastPushTimeStamp": "2021-11-09T18:02:39.265Z",
+      "output": {
+        "PartitionKeyName": "user_email",
+        "Region": "eu-west-1",
+        "Arn": "arn:aws:dynamodb:eu-west-1:335688126910:table/contacts-dev",
+        "StreamArn": "arn:aws:dynamodb:eu-west-1:335688126910:table/contacts-dev/stream/2021-11-09T17:39:32.377",
+        "PartitionKeyType": "S",
+        "Name": "contacts-dev"
+      },
+      "lastPushDirHash": "EuMirW7pAdR6spBpeCKzUuD+UMg="
+    }
+  }
+}

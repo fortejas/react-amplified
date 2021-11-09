@@ -1,0 +1,36 @@
+{
+    "paths": [
+        {
+            "name": "/contacts",
+            "lambdaFunction": "NewContactFn",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/contacts"
+        }
+    ],
+    "resourceName": "contacts",
+    "apiName": "contacts",
+    "functionArns": [
+        {
+            "lambdaFunction": "NewContactFn"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-amplifylandingpage-dev-164431-authRole",
+        "unAuthRoleName": "amplify-amplifylandingpage-dev-164431-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "NewContactFn",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "3ae9f537"
+}
